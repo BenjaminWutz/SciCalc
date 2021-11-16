@@ -1,0 +1,221 @@
+/**
+ * Calculator
+ *
+ * @author Benjamin Wutz
+ * @since 2021-7-15
+ */
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class SciCalc {
+    
+    public static void main (String[] args) {
+        
+        System.out.println("=======================");
+        System.out.println("        SCICALC");
+        System.out.println("=======================");
+        System.out.println();
+		
+    
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter the first number:");
+        
+        int first = sc.nextInt();
+        
+        System.out.println("Enter the second number:");
+        
+        int second = sc.nextInt();
+        
+        System.out.println();
+        
+        displayMenu();
+        
+        System.out.println("Please select a function:");
+        
+        System.out.println();
+        
+        int select = sc.nextInt();
+        
+        if (select == 1){
+            
+            add(first, second);
+            
+        }if (select == 2){
+            
+            subtract(first, second);
+            
+        }if (select == 3){
+            
+            multiply(first, second);
+            
+        }if (select == 4){
+            
+            divide(first, second);
+            
+        }if (select == 5){
+            
+            mod(first, second);
+            
+        }if (select == 6){
+            
+            expo(first, second);
+            
+        }if (select == 7){
+            
+            hailstone(first, second); 
+            
+        }if (select == 8){
+            
+            hypotenuse(first, second);
+            
+        }if (select == 9){
+            
+            largest(first, second);
+            
+        }if (select == 10){
+            
+            smallest(first, second);
+            
+        }else if (1 > select || select > 10) {
+            
+            System.out.println("You did not enter a valid choice.");
+        }
+        
+        System.out.println();
+        
+        System.out.println("Thank you for using =====SCICALC=====");
+    }
+        
+    public static void displayMenu(){
+        
+        System.out.println("Please choose from the following menu:");
+        
+        System.out.println("    1. Add two numbers");
+        
+        System.out.println("    2. Subtract two numbers");
+        
+        System.out.println("    3. Multiply two numbers");
+        
+        System.out.println("    4. Divide two numbers");
+        
+        System.out.println("    5. Mod two numbers");
+        
+        System.out.println("    6. Exponentiate two numbers");
+        
+        System.out.println("    7. Find next Hailstone numbers for each of the two numbers");
+        
+        System.out.println("    8. Find the hypotenuse using two numbers as legs of a right triangle");
+        
+        System.out.println("    9. Find the largest of the two numbers");
+        
+        System.out.println("    10. Find the smallest of the two numbers");
+    }
+    
+    
+        
+    public static void add(int first, int second){
+        
+        System.out.println("The result of " + first + " + " + second + " is " + (first + second)); 
+    }  
+    
+    public static void subtract(int first, int second){
+        
+        System.out.println("The result of " + first + " - " + second + " is " + (first - second));
+    }  
+    
+    public static void multiply(int first, int second){
+        
+        System.out.println("The result of " + first + " * " + second + " is " + (first * second));
+    }
+    
+    public static void divide(int first, int second){
+        
+        double solution = ((double)first / second);
+        
+        System.out.println("The result of " + first + " / " + second + " is " + solution);    
+    }  
+    
+    public static void mod(int first, int second){
+        
+        System.out.println("The result of " + first + " % " + second + " is " + (first % second));    
+    }
+    
+    public static void expo(int first, int second){
+        
+        System.out.println("The result of " + first + " ^ " + second + " is " + (Math.pow(first,second)));   
+    }    
+    
+    public static void hailstone(int first, int second){
+        
+        int firstHailed = 0;
+        
+        int secondHailed = 0;
+        
+        if (first % 2 == 0){
+            
+            firstHailed = first / 2;
+            
+        }else {
+            
+            firstHailed = first * 3 + 1;
+        }
+        
+        if (second % 2 == 0){
+            
+            secondHailed = second / 2;
+            
+        }else {
+            
+            secondHailed = second * 3 + 1;
+        }
+        
+        System.out.println("The result of " + first + " hailed is " + firstHailed + " and the result of " + second + " hailed is " + secondHailed);
+    }    
+    
+    public static void hypotenuse(int first, int second){
+        
+        double solution = Math.sqrt(first * first + second * second);
+        
+        System.out.println("The hypotenuse of a right triangle with legs " + first + " and " + second + " is " + solution);    
+    }    
+    
+    public static void largest(int first, int second){ 
+        
+        if (first > second){
+            
+            System.out.println("The largest number of " + first + " and " + second + " is " + first);
+            
+        }else if (first < second) {
+            
+            System.out.println("The largest number of " + first + " and " + second + " is " + second);
+            
+        }else{
+            
+            System.out.println("The numbers " + first + " and " + second + " are equal");
+        }
+            
+            
+            
+           
+    }    
+    
+    public static void smallest(int first, int second){
+        
+        if (first < second){
+            
+            System.out.println("The smallest number of " + first + " and " + second + " is " + first);
+            
+        }else if (first > second){
+            
+            System.out.println("The smallest number of " + first + " and " + second + " is " + second);
+            
+        }else{
+            
+            System.out.println("The numbers " + first + " and " + second + " are equal");
+        }
+            
+    }    
+    
+}
